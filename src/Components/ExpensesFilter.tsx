@@ -1,14 +1,13 @@
+import categories from "./categories";
+
 const ExpensesFilter = () => {
   return (
     <>
-      <select id="category" name="category" required>
+      <select id="category" name="category">
         <option value="">All</option>
-        <option value="food">Food</option>
-        <option value="transportation">Transportation</option>
-        <option value="entertainment">Entertainment</option>
-        <option value="health">Health</option>
-        <option value="utilities">Utilities</option>
-        <option value="other">Other</option>
+        {categories.map((category) => (
+          <option value="{category}">{category}</option>
+        ))}
       </select>
     </>
   );
