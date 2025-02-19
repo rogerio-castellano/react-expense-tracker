@@ -1,7 +1,12 @@
 import "./App.css";
+import ExpensesList from "./Components/ExpensesList";
 
 function App() {
-  return <></>;
+  return (
+    <>
+      <ExpensesList />
+    </>
+  );
 }
 
 export default App;
