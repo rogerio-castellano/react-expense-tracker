@@ -3,7 +3,7 @@ import categories from "./categories";
 const ExpensesForm = () => {
   return (
     <>
-      <form id="expense-form">
+      <form id="expense-form" className="bordered-div">
         <label htmlFor="description">Description:</label>
         <input type="text" id="description" name="description" required />
 
