@@ -16,7 +16,7 @@ function App() {
       <p></p>
       <ExpensesFilter />
       <p></p>
-      <ExpensesList expenses={expenses} />
+      {expenses.length > 0 && <ExpensesList expenses={expenses} />}
     </>
   );
 }
