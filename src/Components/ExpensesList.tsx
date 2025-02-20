@@ -19,7 +19,7 @@ const ExpensesList = ({ expenses }: props) => {
           return (
             <tr key={expense.id}>
               <td>{expense.description}</td>
-              <td>$ {expense.amount.toFixed(2)}</td>
+              <td className="amount">$ {expense.amount.toFixed(2)}</td>
               <td>{expense.category}</td>
             </tr>
           );
@@ -28,7 +28,7 @@ const ExpensesList = ({ expenses }: props) => {
       <tfoot>
         <tr>
           <td>Total:</td>
-          <td>
+          <td className="amount">
             <span id="total-amount">$ {expenses.reduce((sum, expense) => sum + expense.amount, 0).toFixed(2)}</span>
           </td>
           <td></td>
