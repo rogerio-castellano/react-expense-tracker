@@ -7,16 +7,25 @@ import Header from "./Components/Header";
 import Expense from "./Components/Expense.model";
 
 function App() {
-  const [expenses, setExpenses] = useState<Expense[]>([]);
+  const expenses: Expense[] = [];
+  const [categoryExpenses, setCategoryExpenses] = useState<Expense[]>(expenses);
+
+  function onSelectedCategory(category: string): void {
+    if (category === "") {
+      setCategoryExpenses(expenses);
+    } else {
+      setCategoryExpenses(expenses.filter((expense) => expense.category === category));
+    }
+  }
 
   return (
     <>
       <Header />
       <ExpensesForm />
       <p></p>
-      <ExpensesFilter />
+      <ExpensesFilter onSelectedCategory={(category) => onSelectedCategory(category)} />
       <p></p>
-      {expenses.length > 0 && <ExpensesList expenses={expenses} />}
+      {expenses.length > 0 && <ExpensesList expenses={categoryExpenses} />}
     </>
   );
 }
