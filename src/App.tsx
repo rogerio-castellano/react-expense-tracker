@@ -13,7 +13,7 @@ let category: string = "";
 function App() {
   const [categoryExpenses, setCategoryExpenses] = useState<Expense[]>(expenses);
 
-  function onSelectedCategory(selectedCategory: string): void {
+  function filterExpenses(selectedCategory: string): void {
     category = selectedCategory;
     filterExpensesByCategory();
   }
@@ -32,7 +32,6 @@ function App() {
   }
 
   function filterExpensesByCategory() {
-    console.log(category, expenses);
     if (category === "") {
       setCategoryExpenses([...expenses]);
     } else {
@@ -45,7 +44,7 @@ function App() {
       <Header />
       <ExpensesForm onSubmittedExpense={(newExpense: NewExpense) => addExpense(newExpense)} />
       <p></p>
-      <ExpensesFilter onSelectedCategory={(category) => onSelectedCategory(category)} />
+      <ExpensesFilter onSelectedCategory={(category) => filterExpenses(category)} />
       <p></p>
       {expenses.length > 0 && <ExpensesList expenses={categoryExpenses} />}
     </>
